@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Serve assets from frontend/dist
+RewriteRule ^assets/(.*)$ frontend/dist/assets/$1 [L]
+
+# Serve root index.html for all other routes (SPA)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
